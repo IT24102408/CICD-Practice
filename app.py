@@ -1,4 +1,4 @@
-import subprocess
+from pathlib import Path
 def validate_username(username):
     """Return True when a username is acceptable."""
     if not isinstance(username, str):
@@ -27,5 +27,4 @@ if __name__ == "__main__":
     print(create_profile_message("student_01"))
 
 def show_directory_contents():
-    """Intentionally insecure example for security testing."""
-    subprocess.call("dir", shell=True)
+    return [item.name for item in Path(".").iterdir()]
