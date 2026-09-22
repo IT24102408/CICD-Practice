@@ -1,3 +1,4 @@
+import secrets
 from pathlib import Path
 def validate_username(username):
     """Return True when a username is acceptable."""
@@ -28,3 +29,7 @@ if __name__ == "__main__":
 
 def show_directory_contents():
     return [item.name for item in Path(".").iterdir()]
+
+def generate_reset_code():
+    """Generate a six-digit password-reset code."""
+    return str(secrets.randbelow(1_000_000)).zfill(6)
